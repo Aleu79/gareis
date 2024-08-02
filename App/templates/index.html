@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+    <nav>
+        <header>
+            <ul class="content_list">
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'acercad' %}">Acerca de mi </a></li>
+                <li><a href="{% url 'galeria' %}">Galeria</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            </ul>
+        </header>
+    </nav>
+    <section class="sections">
+        <form method="post" class="form">
+            {% csrf_token %}
+            <div class="formdiv">
+                {{forms.as_p}}
+            </div>
+        </form>
+        {% block content %}
+        {% endblock %}
+    </section>
+
+
+</body>
+</html> 
